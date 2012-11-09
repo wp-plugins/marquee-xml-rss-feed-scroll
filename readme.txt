@@ -5,8 +5,10 @@ Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Tags: post, title, marquee, scroll
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 5.0
+Tested up to: 3.4.2
+Stable tag: 5.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
 Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee in the website with rss feed.
 
@@ -56,34 +58,54 @@ Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee s
 
 == Changelog ==
 
-= 5.0 =
-New demo link, www.gopiplus.com
+= 1.0 =		
+			
+First version.
 
-= 4.0 =		
-Tested upto 3.4
-
-= 3.0 =		
-Tested upto 3.3
-
-= 2.0 =			
+= 2.0 =		
+	
 Target option available  (_blank, _parent, _new).
 
-= 1.0 =					
-First version.
+= 3.0 =		
+
+Tested up to 3.3
+
+= 4.0 =		
+
+Tested up to 3.4
+
+= 5.0 =
+
+New demo link, http://www.gopiplus.com
+
+= 5.1 =
+
+Tested up to 3.4.2
+Slight change in the short code, Please find the new short code for your gallery.
 
 == Upgrade Notice ==
 
-= 5.0 =
-New demo link, www.gopiplus.com
+= 1.0 =		
+			
+First version.
 
-= 4.0 =		
-Tested upto 3.4
-
-= 3.0 =		
-Tested upto 3.3
-
-= 2.0 =			
+= 2.0 =		
+	
 Target option available  (_blank, _parent, _new).
 
-= 1.0 =					
-First version.
+= 3.0 =		
+
+Tested up to 3.3
+
+= 4.0 =		
+
+Tested up to 3.4
+
+= 5.0 =
+
+New demo link, http://www.gopiplus.com
+
+= 5.1 =
+
+Tested up to 3.4.2
+Slight change in the short code, Please find the new short code for your gallery.

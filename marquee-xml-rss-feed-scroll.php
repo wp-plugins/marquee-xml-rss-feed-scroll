@@ -4,10 +4,12 @@
 Plugin Name: Marquee xml rss feed scroll
 Description: Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee in the website with rss feed.
 Author: Gopi.R
-Version: 5.0
+Version: 5.1
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Donate link: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 function rssshow()
@@ -68,12 +70,7 @@ function rssshow()
 	echo $mxrf_marquee;	
 }
 
-add_filter('the_content','mxrf_show_filter');
-
-function mxrf_show_filter($content)
-{
-	return 	preg_replace_callback('/\[RSS-MARQUEE=(.*?)\]/sim','mxrf_show_filter_callback',$content);
-}
+add_shortcode( 'rss-marquee', 'mxrf_shortcode' );
 
 function  mxrf_cdata($data) 
 {
@@ -86,12 +83,17 @@ function  mxrf_cdata($data)
 	return $data;
 }
 
-
-function mxrf_show_filter_callback($matches) 
+function mxrf_shortcode( $atts ) 
 {
 	global $wpdb;
+	//[rss-marquee rssfeed="RSS1"]
+	if ( ! is_array( $atts ) ) 
+	{ 
+		return ''; 
+	}
+	$type = $atts['rssfeed'];
 	
-	@$type =  $matches[1];
+	//@$type =  $matches[1];
 	$mxrf_marquee = "";
 	@$mxrf_scrollamount = get_option('mxrf_scrollamount');
 	@$mxrf_scrolldelay = get_option('mxrf_scrolldelay');
@@ -322,7 +324,7 @@ function mxrf_option()
         <li>Short code for posts and pages</li>
         <li>Add directly in the theme</li>
     </ol>
-    Note: Check official website for more info <a href="http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/" target="_blank">click here</a>
+    Check official website for more information <a href="http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/" target="_blank">click here</a>
     <?php
 }
 
