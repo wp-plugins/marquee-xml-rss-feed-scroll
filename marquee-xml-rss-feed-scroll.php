@@ -4,7 +4,7 @@
 Plugin Name: Marquee xml rss feed scroll
 Description: Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee in the website with rss feed.
 Author: Gopi.R
-Version: 5.1
+Version: 5.2
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Donate link: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
@@ -221,7 +221,7 @@ function mxrf_widget_init()
 
 function mxrf_deactivation() 
 {
-
+	//No action required.
 }
 
 function mxrf_option() 
@@ -300,19 +300,19 @@ function mxrf_option()
 	echo '<p>Target :<br><input  style="width: 100px;" type="text" value="';
 	echo $mxrf_target . '" name="mxrf_target" id="mxrf_target" /> (_blank, _parent, _new)</p>';
 	
-	echo '<p>Rss feed 1 :<br><input  style="width: 350px;" type="text" value="';
+	echo '<p>Rss feed 1 :<br><input  style="width: 450px;" type="text" value="';
 	echo $mxrf_rss1 . '" name="mxrf_rss1" id="mxrf_rss1" /> (RSS1) <br>This is default for widget</p>';
 	
-	echo '<p>Rss feed 2 :<br><input  style="width: 350px;" type="text" value="';
+	echo '<p>Rss feed 2 :<br><input  style="width: 450px;" type="text" value="';
 	echo $mxrf_rss2 . '" name="mxrf_rss2" id="mxrf_rss2" /> (RSS2)</p>';
 	
-	echo '<p>Rss feed 3 :<br><input  style="width: 350px;" type="text" value="';
+	echo '<p>Rss feed 3 :<br><input  style="width: 450px;" type="text" value="';
 	echo $mxrf_rss3 . '" name="mxrf_rss3" id="mxrf_rss3" /> (RSS3)</p>';
 	
-	echo '<p>Rss feed 4 : <br><input  style="width: 350px;" type="text" value="';
+	echo '<p>Rss feed 4 : <br><input  style="width: 450px;" type="text" value="';
 	echo $mxrf_rss4 . '" name="mxrf_rss4" id="mxrf_rss4" /> (RSS4)</p>';
 	
-	echo '<p>Rss feed 5 : <br><input  style="width: 350px;" type="text" value="';
+	echo '<p>Rss feed 5 : <br><input  style="width: 450px;" type="text" value="';
 	echo $mxrf_rss5 . '" name="mxrf_rss5" id="mxrf_rss5" /> (RSS5)</p>';
 	
 	echo '<input name="mxrf_submit" id="mxrf_submit" lang="publish" class="button-primary" value="Update" type="Submit" />';
