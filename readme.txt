@@ -4,9 +4,9 @@ Donate link: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll
 Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Tags: post, title, marquee, scroll
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 5.2
+Requires at least: 3.4
+Tested up to: 3.6
+Stable tag: 6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -87,6 +87,11 @@ Slight change in the short code, Please find the new short code for your gallery
 
 Tested up to 3.5
 
+= 6.0 =
+
+Tested up to 3.6
+Added some security feature.
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -117,3 +122,8 @@ Slight change in the short code, Please find the new short code for your gallery
 = 5.2 =
 
 Tested up to 3.5
+
+= 6.0 =
+
+Tested up to 3.6
+Added some security feature.

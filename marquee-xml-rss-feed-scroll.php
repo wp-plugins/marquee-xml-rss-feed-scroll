@@ -4,7 +4,7 @@
 Plugin Name: Marquee xml rss feed scroll
 Description: Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee in the website with rss feed.
 Author: Gopi.R
-Version: 5.2
+Version: 6.0
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Donate link: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
@@ -177,9 +177,9 @@ function mxrf_install()
 
 	add_option('mxrf_rss1', "http://www.gopiplus.com/work/category/word-press-plug-in/feed/");
 	add_option('mxrf_rss2', "http://www.gopiplus.com/extensions/feed");
-	add_option('mxrf_rss3', "");
-	add_option('mxrf_rss4', "");
-	add_option('mxrf_rss5', "");
+	add_option('mxrf_rss3', "http://www.gopiplus.com/work/category/word-press-plug-in/feed/");
+	add_option('mxrf_rss4', "http://www.gopiplus.com/work/category/word-press-plug-in/feed/");
+	add_option('mxrf_rss5', "http://www.gopiplus.com/work/category/word-press-plug-in/feed/");
 	add_option('mxrf_spliter', " - ");
 	add_option('mxrf_target', "_blank");
 }
@@ -227,8 +227,15 @@ function mxrf_deactivation()
 function mxrf_option() 
 {
 	global $wpdb;
-	echo '<h2>Marquee xml rss feed </h2>';
-	
+	?>
+	<div class="wrap">
+	  <div class="form-wrap">
+		<div id="icon-edit" class="icon32 icon32-posts-post"><br>
+		</div>
+		<h2>Marquee xml rss feed</h2>
+		<h3>Plugin setting</h3>
+	<?php
+
 	$mxrf_title = get_option('mxrf_title');
 	
 	$mxrf_scrollamount = get_option('mxrf_scrollamount');
@@ -246,6 +253,9 @@ function mxrf_option()
 	
 	if (@$_POST['mxrf_submit']) 
 	{
+		//	Just security thingy that wordpress offers us
+		check_admin_referer('mxrf_form_setting');
+		
 		$mxrf_title = stripslashes($_POST['mxrf_title']);
 		
 		$mxrf_scrollamount = stripslashes($_POST['mxrf_scrollamount']);
@@ -279,50 +289,53 @@ function mxrf_option()
 	
 	echo '<form name="mxrf_form" method="post" action="">';
 	
-	echo '<p>Title :<br><input  style="width: 250px;" type="text" value="';
-	echo $mxrf_title . '" name="mxrf_title" id="mxrf_title" /></p>';
+	echo '<label for="tag-title">Title :</label><input  style="width: 250px;" type="text" value="';
+	echo $mxrf_title . '" name="mxrf_title" id="mxrf_title" /><p></p>';
 	
-	echo '<p>Scroll amount :<br><input  style="width: 100px;" type="text" value="';
-	echo $mxrf_scrollamount . '" name="mxrf_scrollamount" id="mxrf_scrollamount" /></p>';
+	echo '<label for="tag-title">Scroll amount :</label><input  style="width: 100px;" type="text" value="';
+	echo $mxrf_scrollamount . '" name="mxrf_scrollamount" id="mxrf_scrollamount" /><p></p>';
 	
-	echo '<p>Scroll delay :<br><input  style="width: 100px;" type="text" value="';
-	echo $mxrf_scrolldelay . '" name="mxrf_scrolldelay" id="mxrf_scrolldelay" /></p>';
+	echo '<label for="tag-title">Scroll delay :</label><input  style="width: 100px;" type="text" value="';
+	echo $mxrf_scrolldelay . '" name="mxrf_scrolldelay" id="mxrf_scrolldelay" /><p></p>';
 	
-	echo '<p>Scroll direction :<br><input  style="width: 100px;" type="text" value="';
-	echo $mxrf_direction . '" name="mxrf_direction" id="mxrf_direction" /> (Left/Right)</p>';
+	echo '<label for="tag-title">Scroll direction :</label><input  style="width: 100px;" type="text" value="';
+	echo $mxrf_direction . '" name="mxrf_direction" id="mxrf_direction" /><p>Enter Left (or) Right</p>';
 	
-	echo '<p>Scroll style :<br><input  style="width: 250px;" type="text" value="';
-	echo $mxrf_style . '" name="mxrf_style" id="mxrf_style" /></p>';
+	echo '<label for="tag-title">Scroll style :</label><input  style="width: 250px;" type="text" value="';
+	echo $mxrf_style . '" name="mxrf_style" id="mxrf_style" /><p></p>';
 	
-	echo '<p>Spliter :<br><input  style="width: 100px;" type="text" value="';
-	echo $mxrf_spliter . '" name="mxrf_spliter" id="mxrf_spliter" /></p>';
+	echo '<label for="tag-title">Spliter :</label><input  style="width: 100px;" type="text" value="';
+	echo $mxrf_spliter . '" name="mxrf_spliter" id="mxrf_spliter" /><p></p>';
 	
-	echo '<p>Target :<br><input  style="width: 100px;" type="text" value="';
-	echo $mxrf_target . '" name="mxrf_target" id="mxrf_target" /> (_blank, _parent, _new)</p>';
+	echo '<label for="tag-title">Target :</label><input  style="width: 100px;" type="text" value="';
+	echo $mxrf_target . '" name="mxrf_target" id="mxrf_target" /> <p> Enter: _blank   (or)   _parent   (or)   _new</p>';
 	
-	echo '<p>Rss feed 1 :<br><input  style="width: 450px;" type="text" value="';
-	echo $mxrf_rss1 . '" name="mxrf_rss1" id="mxrf_rss1" /> (RSS1) <br>This is default for widget</p>';
+	echo '<label for="tag-title">Rss feed 1 :</label><input  style="width: 450px;" type="text" value="';
+	echo $mxrf_rss1 . '" name="mxrf_rss1" id="mxrf_rss1" /><p> (RSS1) This is default for widget</p>';
 	
-	echo '<p>Rss feed 2 :<br><input  style="width: 450px;" type="text" value="';
-	echo $mxrf_rss2 . '" name="mxrf_rss2" id="mxrf_rss2" /> (RSS2)</p>';
+	echo '<label for="tag-title">Rss feed 2 :</label><input  style="width: 450px;" type="text" value="';
+	echo $mxrf_rss2 . '" name="mxrf_rss2" id="mxrf_rss2" /><p>(RSS2)</p>';
 	
-	echo '<p>Rss feed 3 :<br><input  style="width: 450px;" type="text" value="';
-	echo $mxrf_rss3 . '" name="mxrf_rss3" id="mxrf_rss3" /> (RSS3)</p>';
+	echo '<label for="tag-title">Rss feed 3 :</label><input  style="width: 450px;" type="text" value="';
+	echo $mxrf_rss3 . '" name="mxrf_rss3" id="mxrf_rss3" /><p>(RSS3)</p>';
 	
-	echo '<p>Rss feed 4 : <br><input  style="width: 450px;" type="text" value="';
-	echo $mxrf_rss4 . '" name="mxrf_rss4" id="mxrf_rss4" /> (RSS4)</p>';
+	echo '<label for="tag-title">Rss feed 4 : </label><input  style="width: 450px;" type="text" value="';
+	echo $mxrf_rss4 . '" name="mxrf_rss4" id="mxrf_rss4" /><p>(RSS4)</p>';
 	
-	echo '<p>Rss feed 5 : <br><input  style="width: 450px;" type="text" value="';
-	echo $mxrf_rss5 . '" name="mxrf_rss5" id="mxrf_rss5" /> (RSS5)</p>';
+	echo '<label for="tag-title">Rss feed 5 : </label><input  style="width: 450px;" type="text" value="';
+	echo $mxrf_rss5 . '" name="mxrf_rss5" id="mxrf_rss5" /><p>(RSS5)</p>';
 	
-	echo '<input name="mxrf_submit" id="mxrf_submit" lang="publish" class="button-primary" value="Update" type="Submit" />';
+	echo '<input name="mxrf_submit" id="mxrf_submit" lang="publish" class="button-primary" value="Click to Update" type="Submit" />';
+	
+	wp_nonce_field('mxrf_form_setting');
+	
 	echo '</form>';
 	?>
     <h2>Plugin configuration option</h2>
     <ol>
-    	<li>Drag and drop the widget</li>
-        <li>Short code for posts and pages</li>
-        <li>Add directly in the theme</li>
+		<li>Drag and drop the widget.</li>
+		<li>Add the plugin in the posts or pages using short code.</li>
+		<li>Add directly in to the theme using PHP code.</li>
     </ol>
     Check official website for more information <a href="http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/" target="_blank">click here</a>
     <?php
