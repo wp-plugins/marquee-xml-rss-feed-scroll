@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Tags: post, title, marquee, scroll
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 6.1
+Tested up to: 3.9
+Stable tag: 6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -100,6 +100,11 @@ Added some security feature.
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (marquee-xml.po) available in the languages folder.
 
+= 6.2 =
+
+1. Tested up to 3.9
+2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -141,3 +146,8 @@ Added some security feature.
 1. Tested up to 3.8
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (marquee-xml.po) available in the languages folder.
+
+= 6.2 =
+
+1. Tested up to 3.9
+2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)

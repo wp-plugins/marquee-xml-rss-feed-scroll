@@ -2,8 +2,8 @@
 /*
 Plugin Name: Marquee xml rss feed scroll
 Description: Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee in the website with rss feed.
-Author: Gopi.R
-Version: 6.1
+Author: Gopi Ramasamy
+Version: 6.2
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Donate link: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
@@ -36,33 +36,32 @@ function rssshow()
 		$url = "http://www.gopiplus.com/work/feed/";
 	}
 	
-	$cnt=0;
-	$spliter="";
-	$mxrf="";
-	$doc = new DOMDocument();
-	$doc->load( $url );
-	$item = $doc->getElementsByTagName( "item" );
-	if ( ! empty($item) ) 
+	$maxitems = 0;
+	$spliter = "";
+	$mxrf = "";
+	include_once( ABSPATH . WPINC . '/feed.php' );
+	$rss = fetch_feed( $url );
+	if ( ! is_wp_error( $rss ) )
 	{
-		$count = 0;
-		foreach( $item as $item )
+    	$cnt = 0;
+		$maxitems = $rss->get_item_quantity( 10 ); 
+    	$rss_items = $rss->get_items( 0, $maxitems );
+		if ( $maxitems > 0 )
 		{
-			$paths = $item->getElementsByTagName( "title" );
-			$title = mysql_real_escape_string(mxrf_cdata($paths->item(0)->nodeValue));
-			$paths = $item->getElementsByTagName( "link" );
-			$links = mysql_real_escape_string(mxrf_cdata($paths->item(0)->nodeValue));
-			if($count > 0)
+			foreach ( $rss_items as $item )
 			{
-				$spliter = $mxrf_spliter;
-			}
-			$mxrf = $mxrf . $spliter . "<a target='".$mxrf_target."' href='".$links."'>" . $title . "</a>";
-			$count = $count + 1;
-			if($count == 11)
-			{
-				break;
+				$links = $item->get_permalink();
+				$title = $item->get_title();
+				if($cnt > 0)
+				{
+					$spliter = $mxrf_spliter;
+				}
+				$mxrf = $mxrf . $spliter . "<a target='".$mxrf_target."' href='".$links."'>" . $title . "</a>";
+				$cnt = $cnt + 1;
 			}
 		}
 	}
+
 	$mxrf_marquee = $mxrf_marquee . "<div style='padding:3px;' class='mxrf_marquee'>";
 	$mxrf_marquee = $mxrf_marquee . "<marquee style='$mxrf_style' scrollamount='$mxrf_scrollamount' scrolldelay='$mxrf_scrolldelay' direction='$mxrf_direction' onmouseover='this.stop()' onmouseout='this.start()'>";
 	$mxrf_marquee = $mxrf_marquee . $mxrf;
@@ -135,28 +134,28 @@ function mxrf_shortcode( $atts )
 		$url = "http://www.gopiplus.com/work/feed/";
 	}
 	
-	$cnt=0;
-	$doc = new DOMDocument();
-	$doc->load( $url );
-	$item = $doc->getElementsByTagName( "item" );
-	if ( ! empty($item) ) 
+	$maxitems = 0;
+	$spliter = "";
+	$mxrf = "";
+	include_once( ABSPATH . WPINC . '/feed.php' );
+	$rss = fetch_feed( $url );
+	if ( ! is_wp_error( $rss ) )
 	{
-		$count = 0;
-		foreach( $item as $item )
+    	$cnt = 0;
+		$maxitems = $rss->get_item_quantity( 10 ); 
+    	$rss_items = $rss->get_items( 0, $maxitems );
+		if ( $maxitems > 0 )
 		{
-			$paths = $item->getElementsByTagName( "title" );
-			$title = mysql_real_escape_string(mxrf_cdata($paths->item(0)->nodeValue));
-			$paths = $item->getElementsByTagName( "link" );
-			$links = mysql_real_escape_string(mxrf_cdata($paths->item(0)->nodeValue));
-			if($count > 0)
+			foreach ( $rss_items as $item )
 			{
-				$spliter = $mxrf_spliter;
-			}
-			$mxrf = $mxrf . $spliter . "<a target='".$mxrf_target."' href='".$links."'>" . $title . "</a>";
-			$count = $count + 1;
-			if($count == 11)
-			{
-				break;
+				$links = $item->get_permalink();
+				$title = $item->get_title();
+				if($cnt > 0)
+				{
+					$spliter = $mxrf_spliter;
+				}
+				$mxrf = $mxrf . $spliter . "<a target='".$mxrf_target."' href='".$links."'>" . $title . "</a>";
+				$cnt = $cnt + 1;
 			}
 		}
 	}
