@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Tags: post, title, marquee, scroll
 Requires at least: 3.4
-Tested up to: 3.9
-Stable tag: 6.2
+Tested up to: 4.0
+Stable tag: 6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -43,8 +43,6 @@ Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee s
 *   Short code for posts and pages.		
 	
 == Installation ==
-
-**Installation Instruction & Configuration**  
 
 [See Installation Instruction and Configuration information and Demo](http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/)	   
 
@@ -105,6 +103,10 @@ Plugin *.po file (marquee-xml.po) available in the languages folder.
 1. Tested up to 3.9
 2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)
 
+= 6.3 =
+
+1. Tested up to 4.0
+
 == Upgrade Notice ==
 
 = 1.0 =		
@@ -151,3 +153,7 @@ Plugin *.po file (marquee-xml.po) available in the languages folder.
 
 1. Tested up to 3.9
 2. Now it using fetch_feed() wordpress method to load rss feed. (fetch_feed() uses the SimplePie and FeedCache functionality for retrieval and parsing and automatic caching)
+
+= 6.3 =
+
+1. Tested up to 4.0
