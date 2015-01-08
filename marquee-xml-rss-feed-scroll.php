@@ -3,7 +3,7 @@
 Plugin Name: Marquee xml rss feed scroll
 Description: Marquee xml rss feed scroll is a simple wordpress plugin to create the marquee in the website with rss feed.
 Author: Gopi Ramasamy
-Version: 6.3
+Version: 6.4
 Plugin URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Author URI: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
 Donate link: http://www.gopiplus.com/work/2011/08/10/marquee-xml-rss-feed-scroll-wordpress-scroll/
